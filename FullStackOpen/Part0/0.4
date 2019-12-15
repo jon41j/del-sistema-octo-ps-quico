@@ -1,0 +1,43 @@
+title Exercise 0.4 "New Note"
+
+Browser->Server:  HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+Server->Browser: HTML-CODE  URL redirect
+
+note over browser:
+
+Browser request to the server address new_note. The server responds with HTTP status code 302.
+This is a URL redirect, with which the server asks the browser to do a new HTTP GET request
+to the address defined in the header's Location. So, the browser reloads the Notes page.
+
+There is also data submitted thanks to the form data that has attributes action and method, 
+which define that submitting the form is done as an HTTP POST request to the address new_note.
+Data is sent as the body of the POST-request.
+The Server creates a new note object, and adds it to an array called notes.
+The Note objects have two fields: content containing the actual content of the note, and date 
+containing the date and time the note was created.
+
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Server-->Browser: HTML-code
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: main.js
+
+note over browser:
+
+browser starts executing js-code
+that requests JSON data from server 
+
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+
+browser executes the event handler
+that renders notes to display, with the new note created before too
+
+end note

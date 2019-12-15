@@ -1,0 +1,16 @@
+title Exercise 0.6 "New note"
+
+Browser->Server:  HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+Server->Browser: application/json;
+
+note over browser:
+The POST request to the address new_note_spa contains the new note as JSON-data containing
+both the content of the note (content) and the timestamp (date).
+
+The server responds with statuscode 201 created. This time the server does not ask for a redirect, 
+the browser stays on the same page, and it sends no further HTTP-requests.
+
+The Single page app version of the app does not send the form data the traditional way, but instead 
+uses the JavaScript code it fetched from the server. The new note is created and will appear in the page.
+
+end note
